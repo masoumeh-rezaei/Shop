@@ -2,11 +2,11 @@
 import Loading from '@/components/loadingComp'
 import useCartStore from '@/store'
 import React, { useEffect, useState } from 'react'
-import { useAuth, useUser } from '@clerk/nextjs'
+import { useAuth } from '@clerk/nextjs'
 import Container from '@/components/container'
 import NoAccessToCart from '@/components/noAccessToCart'
 import EmptyCart from '@/components/emptyCart'
-import { Heart, ShoppingBagIcon, Trash, WindIcon } from 'lucide-react'
+import { Heart, ShoppingBagIcon, Trash } from 'lucide-react'
 import Image from 'next/image'
 import { urlFor } from '@/sanity/lib/image'
 import Link from 'next/link'
@@ -23,7 +23,6 @@ const Cart = () => {
   const [isClient,setIsClient] = useState(false)
   const {isSignedIn}=useAuth()
   const {deleteCartProduct,getTotalPrice,getItemCount,getSubtotalPrice,getGroupedItems,resetCart}=useCartStore()
-  const user = useUser()
   useEffect(()=>{
     setIsClient(true)
   },[])
